@@ -7,7 +7,7 @@ clean :
 
 VPX.framework.zip : VPX.framework/VPX
 	rm -f VPX.framework.zip
-	zip -r VPX.framework.zip VPX.framework
+	zip -r VPX.framework.zip VPX.framework LICENSE
 
 VPX.framework/VPX :
 	./libvpx/build/make/iosbuild.sh
