@@ -1,13 +1,17 @@
-all : VPX.framework.zip
+all : VPX-iOS.zip
 
 clean :
-	rm -f VPX.framework.zip
-	rm -rf VPX.framework
-	rm -rf _iosbuild
+	rm -f VPX-iOS.zip
+	rm -rf VPX-iOS
 
-VPX.framework.zip : VPX.framework/VPX
-	rm -f VPX.framework.zip
-	zip -r VPX.framework.zip VPX.framework LICENSE
+VPX-iOS.zip : VPX-iOS/VPX.framework/VPX
+	rm -f VPX-iOS.zip
+	zip -r VPX-iOS.zip \
+	  VPX-iOS/LICENSE \
+	  VPX-iOS/VPX.framework
 
-VPX.framework/VPX :
-	./libvpx/build/make/iosbuild.sh
+VPX-iOS/VPX.framework/VPX :
+	rm -rf VPX-iOS
+	mkdir VPX-iOS
+	cp -pf libvpx/LICENSE VPX-iOS/LICENSE
+	(cd VPX-iOS && ../libvpx/build/make/iosbuild.sh)
