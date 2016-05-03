@@ -14,4 +14,4 @@ VPX-iOS/VPX.framework/VPX :
 	rm -rf VPX-iOS
 	mkdir VPX-iOS
 	cp -pf libvpx/LICENSE VPX-iOS/LICENSE
-	(cd VPX-iOS && ../libvpx/build/make/iosbuild.sh --enable-shared --show-build-output --verbose)
+	(cd VPX-iOS && MAKEFLAGS=-j8 ../libvpx/build/make/iosbuild.sh --enable-shared --show-build-output --verbose)
